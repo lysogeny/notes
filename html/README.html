@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Lysogeny" />
+  <meta name="dcterms.date" content="2019-03-18" />
+  <title>Simple diary makefile thing</title>
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">body {
+margin: 1em auto;
+max-width: 40em;
+padding: 0 .62em;
+}
+h1, h2, h3 {
+line-height: 1.2;
+}
+p {
+text-align: justify;
+}
+pre {
+margin-left: 3em;
+}
+p.author {
+font-style: italic;
+}
+@media print {
+body {
+max-width: none;
+}
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Simple diary makefile thing</h1>
+<p class="author">Lysogeny</p>
+<p class="date">2019-03-18</p>
+</header>
+<p>This is a simple makefile for keeping a markdown diary thing using pandoc. I use this to create a project-specific diary directory in a project directory.</p>
+<p>Several useful targets are defined:</p>
+<dl>
+<dt>today</dt>
+<dd>create an empty makefile with your name and current date for the current date with a header.
+</dd>
+<dt>edit</dt>
+<dd>opens <code>$VISUAL</code> in this folder
+</dd>
+<dt>pdf, html, docx</dt>
+<dd>creates all pdfs, htmls, docxs or whatever. Targets are collected using GNU find.
+</dd>
+<dt>all</dt>
+<dd>creates pdf and html files for all markdown files in this dir.
+</dd>
+<dt>clean</dt>
+<dd>remove all output files (html, pdf, docx, …).
+</dd>
+</dl>
+<p>For html there is a cascading style sheet in <code>css/</code> that you can edit to suit your needs. If you would rather ignore it, modify the <code>html_flags</code> variable to not include the style sheet.</p>
+<h2 id="usage">Usage</h2>
+<p>Edit the makefile with your name and editor choice (if different from <code>$VISUAL</code>).</p>
+<p>To create an entry for the current day:</p>
+<pre><code>make today</code></pre>
+<p>Then edit the file to write your diary. Creating all of one specific target type:</p>
+<pre><code>make pdf
+make docx
+make html</code></pre>
+<p>Make all default targets (pdf, html):</p>
+<pre><code>make</code></pre>
+<p>delete output files:</p>
+<pre><code>make clean</code></pre>
+<hr />
+<p><strong>Nota Bene:</strong> you should not run <code>make -B</code>, as that will try to rebuild the markdown files as well, and thus place another YAML header at the tail of the file. If you want to rebuild your pdfs, htmls, or whatever, do the following:</p>
+<pre><code>make clean
+make html</code></pre>
+<hr />
+<h2 id="todo">Todo</h2>
+<h3 id="features">Features</h3>
+<ul>
+<li><input type="checkbox" disabled></input>
+Feature to edit current day by refering <em>today</em>, something like <code>make edit today</code> or similar.</li>
+</ul>
+<h3 id="css">CSS</h3>
+<ul>
+<li><input type="checkbox" disabled></input>
+Fancier blockquotes</li>
+<li><input type="checkbox" disabled></input>
+Fancier code segments</li>
+<li><input type="checkbox" disabled></input>
+???</li>
+</ul>
+</body>
+</html>
