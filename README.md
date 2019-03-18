@@ -7,6 +7,9 @@ date: 2019-03-18
 This is a simple makefile for keeping a markdown diary thing using pandoc.
 I use this to create a project-specific diary directory in a project directory.
 
+If you are looking at this on github, the following text will be a bit mangled,
+as the markdown feature set is limited compared to pandoc.
+
 Several useful targets are defined:
 
 today
@@ -28,8 +31,24 @@ For html there is a cascading style sheet in `css/` that you can edit to suit
 your needs. If you would rather ignore it, modify the `html_flags` variable to
 not include the style sheet.
 
+Dependencies
+------------
+
+- GNU make
+- GNU find
+- pandoc
+
 Usage
 -----
+
+Download a zip file here: https://github.com/lysogeny/notes/archive/master.zip
+and install the directory anywhere you like.
+
+If you are feeling excessively lazy:
+
+    curl -L https://github.com/lysogeny/notes/archive/master.tar.gz | tar -zxv
+
+Will create `notes-master` in your current working directory.
 
 Edit the makefile with your name and editor choice (if different from `$VISUAL`).
 
@@ -69,7 +88,7 @@ Todo
 
 ### Features ###
 
-- [ ] Feature to edit current day by refering *today*, something like `make edit today` or similar.
+- [ ] Feature to edit current day by referring *today*, something like `make edit today` or similar.
 
 ### CSS ###
 
